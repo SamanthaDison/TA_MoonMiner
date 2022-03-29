@@ -26,7 +26,7 @@ let upgrades = {
         type: 'auto'
     },
     duckDuckJuice: {
-        price: 200,
+        price: 0,
         quantity: 0,
         multiplier: 50,
         type: 'auto'
@@ -75,6 +75,7 @@ function draw() {
 function increaseQuacks() {
     quacks++
     console.log(quacks)
+    document.getElementById('quackSound').play()
     collectClickUpgrades()
     draw()
 }
@@ -90,7 +91,7 @@ function buyUpgrade(upgradeItem) {
         addFish()
     }
     if (upgradeItem == 'duckDuckJuice') {
-        // addDuckDuckJuice()
+        addDuckDuckJuice()
     }
     draw()
 }
@@ -148,15 +149,25 @@ function addFish() {
 
 }
 
-// function addDuckDuckJuice() {
-//     document.getElementById('addDuckDuckJuice').innerHTML =
-//         `<marquee behavior="alternate" direction="up" scrollamount="50">
-//         <i class="duck" onclick="increaseQuacks()">
-//             🦆
-//         </i>
-//     </marquee>`
-// }
+function addDuckDuckJuice() {
+    document.getElementById('addDuckDuckJuice').innerHTML =
+        `<marquee behavior="alternate" direction="up" scrollamount="50">
+        <i class="duck" onclick="increaseQuacks()">
+            🦆
+        </i>
+    </marquee>`
+    const myTimeout = setTimeout(clearDuckDuckJuice, 10000)
+}
 
+function clearDuckDuckJuice() {
+    document.getElementById('addDuckDuckJuice').innerHTML =
+        `<marquee behavior="alternate" direction="up">
+        <i class="duck" onclick="increaseQuacks()">
+            🦆
+        </i>
+    </marquee>`
+    clearTimeout()
+}
 
 
 setInterval(collectAutoUpgrades, 3000)
