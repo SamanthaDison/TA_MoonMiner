@@ -3,6 +3,7 @@ body{
     background-size: cover;
     min-height: 100vh;
     font-family: 'Fuzzy Bubbles', cursive;
+    user-select: none;
 }
 
 header{
@@ -26,7 +27,7 @@ marquee{
 .duck{
     font-size: 10rem;
     cursor: pointer;
-    user-select: none;
+    
 }
 
 .fish{

@@ -26,12 +26,14 @@ let upgrades = {
         type: 'auto'
     },
     duckDuckJuice: {
-        price: 0,
+        price: 5,
         quantity: 0,
-        multiplier: 50,
-        type: 'auto'
+        multiplier: 2,
+        type: 'temp'
     }
 }
+
+let duckIt = 1
 
 let quacks = 0
 
@@ -97,12 +99,14 @@ function buyUpgrade(upgradeItem) {
 }
 
 function collectClickUpgrades() {
+    let total = 0
     for (const upgradeItem in upgrades) {
         const upgrade = upgrades[upgradeItem]
         if (upgrade.quantity > 0 && upgrade.type == 'click') {
-            quacks += upgrade.quantity * upgrade.multiplier
+            total += upgrade.quantity * upgrade.multiplier
         }
     }
+    quacks += total * duckIt
     draw()
 }
 
@@ -150,6 +154,7 @@ function addFish() {
 }
 
 function addDuckDuckJuice() {
+    duckIt++
     document.getElementById('addDuckDuckJuice').innerHTML =
         `<marquee behavior="alternate" direction="up" scrollamount="50">
         <i class="duck" onclick="increaseQuacks()">
@@ -160,12 +165,14 @@ function addDuckDuckJuice() {
 }
 
 function clearDuckDuckJuice() {
+    duckIt--
     document.getElementById('addDuckDuckJuice').innerHTML =
         `<marquee behavior="alternate" direction="up">
         <i class="duck" onclick="increaseQuacks()">
             🦆
         </i>
     </marquee>`
+
     clearTimeout()
 }
 
