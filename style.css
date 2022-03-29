@@ -1,0 +1,76 @@
+body{
+    background-image: url("https://images.unsplash.com/photo-1558438102-64c19e995a44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1373&q=80");
+    background-size: cover;
+    min-height: 100vh;
+    font-family: 'Fuzzy Bubbles', cursive;
+}
+
+header{
+    color: white;
+    text-shadow: 1px 1px 1px rgb(71, 139, 248), -1px -1px 1px rgba(255, 255, 0, 0.431);
+    
+}
+
+.main-section{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 80vh;
+}
+
+marquee{
+    height: 80vh;
+    position: absolute;
+}
+
+.duck{
+    font-size: 10rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.fish{
+    font-size: 3rem;
+    opacity: 60%;
+}
+
+.duck:hover{
+filter: drop-shadow(0px 0px 6px white);
+    transform: scale(1.05) translateX(2.5%);
+}
+
+.bottom-section{
+    position: fixed;
+    bottom: 0;
+}
+
+/* .stat-card{
+    width: 25%;
+    height: 25%;
+} */
+
+.offcanvas-height{
+    min-height: 50vh;
+}
+
+.openShop{
+    cursor: pointer;
+}
+
+.shop-button{
+    height: 5em;
+    transform: translateY(2em);
+    transition: all .2s ease;
+}
+
+.shop-button:hover{
+    transform: translateX(0em);
+}
+
+.upgrade-items>div>img{
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+   
+}
+
