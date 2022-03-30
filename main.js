@@ -78,27 +78,6 @@ function increaseQuacks() {
     quacks++
     console.log(quacks)
     document.getElementById('quackSound').play()
-    collectClickUpgrades()
-    draw()
-}
-
-function buyUpgrade(upgradeItem) {
-    const upgrade = upgrades[upgradeItem]
-    if (quacks >= upgrade.price) {
-        upgrade.quantity += 1
-        quacks -= upgrade.price
-        upgrade.price += upgrade.price
-    }
-    if (upgradeItem == 'fish') {
-        addFish()
-    }
-    if (upgradeItem == 'duckDuckJuice') {
-        addDuckDuckJuice()
-    }
-    draw()
-}
-
-function collectClickUpgrades() {
     let total = 0
     for (const upgradeItem in upgrades) {
         const upgrade = upgrades[upgradeItem]
@@ -110,6 +89,23 @@ function collectClickUpgrades() {
     draw()
 }
 
+function buyUpgrade(upgradeItem) {
+    const upgrade = upgrades[upgradeItem]
+    if (quacks >= upgrade.price) {
+        upgrade.quantity += 1
+        quacks -= upgrade.price
+        upgrade.price += upgrade.price
+    } else {
+        window.alert('Not enough quacks bruh')
+    }
+    if (upgradeItem == 'fish') {
+        addFish()
+    }
+    if (upgradeItem == 'duckDuckJuice') {
+        addDuckDuckJuice()
+    }
+    draw()
+}
 function collectAutoUpgrades() {
     let totalQuacks = 0
     for (const upgradeItem in upgrades) {
